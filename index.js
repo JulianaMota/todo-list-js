@@ -13,8 +13,8 @@ const addTodo = (todo, id) => {
 	let html = `
 	<li data-id="${id}">
 		<div>
-			<label for="imp" class="container">Important
-			<input type="checkbox" id="imp" ${str}>
+			<label for="imp${id}" class="container">Important
+			<input type="checkbox" id="imp${id}" ${str}>
 			<span class="checkmark"></span>
 			<lable>
 		</div>
