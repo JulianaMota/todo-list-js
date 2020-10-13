@@ -1,0 +1,228 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+	margin: 5% 30%;
+	background: rgb(26, 0, 36);
+	background: linear-gradient(
+		90deg,
+		rgba(26, 0, 36, 1) 0%,
+		rgba(121, 9, 45, 1) 50%,
+		rgba(255, 178, 242, 1) 100%
+	);
+}
+
+h1 {
+	text-align: center;
+	color: #fff;
+}
+
+.white-box {
+	background-color: rgba(255, 255, 255, 0.788);
+	padding: 5%;
+	border-radius: 10px;
+}
+input[type=text]::placeholder,
+textarea::placeholder {
+	color: rgb(170, 170, 170);
+}
+
+/********buttons***********/
+.btn {
+	padding: 10px 20px;
+	outline: none;
+	border: 2px solid rgba(121, 9, 45, 1);
+	border-radius: 5px;
+	background-color: rgba(121, 9, 45, 1);
+	color: #fff;
+	margin-top: 20px;
+}
+.btn:hover {
+	background-color: rgb(184, 66, 125);
+	border: 2px solid transparent;
+}
+[data-btn=edit] {
+	background-color: transparent;
+	border: 2px solid rgba(121, 9, 45, 1);
+	color: rgba(121, 9, 45, 1);
+	font-weight: bold;
+}
+[data-btn=edit]:hover {
+	border: 2px solid transparent;
+	color: white;
+}
+
+/********ADD TODO**********/
+legend {
+	font-weight: bolder;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+label {
+	font-weight: 500;
+}
+.form-display {
+	display: grid;
+	row-gap: 10px;
+	font-size: 15px;
+}
+.form-display div {
+	justify-self: end;
+}
+.form-display input[type=text],
+.form-display textarea,
+#form-search input[type=text] {
+	border: none;
+	padding: 7px;
+	border-radius: 5px;
+	border-bottom: 1px solid;
+	font-size: 15px;
+	font-family: 'Montserrat', sans-serif;
+}
+.container {
+	display: block;
+	position: relative;
+	padding-right: 30px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	text-align: right;
+}
+.container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+.checkmark {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 20px;
+	width: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+}
+.container:hover input ~ .checkmark {
+	background-color: rgb(184, 66, 125);
+}
+.container input:checked ~ .checkmark {
+	background-color: rgba(121, 9, 45, 1);
+}
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+.container input:checked ~ .checkmark:after {
+	display: block;
+}
+.container .checkmark:after {
+	left: 6px;
+	top: 2px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/**************LIST***************/
+ul li {
+	list-style: none;
+	display: grid;
+	grid-template: auto auto auto auto auto / 1fr;
+	border: 2px solid rgba(121, 9, 45, 1);
+	padding: 17px;
+	border-radius: 10px;
+	row-gap: 10px;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	display: grid;
+	row-gap: 20px;
+}
+ul input[type=text],
+ul textarea {
+	background-color: transparent;
+	border: none;
+	padding: 5px;
+	border-radius: 5px;
+	width: 100%;
+	box-sizing: border-box;
+}
+ul textarea {
+	font-size: 13px;
+	font-family: 'Montserrat', sans-serif;
+	min-height: 60px;
+	background-color: rgb(255, 215, 240);
+}
+ul .todo-title {
+	font-size: 22px;
+}
+ul p {
+	margin: 0;
+	text-align: right;
+	font-size: 11px;
+}
+input[type=text]:hover,
+textarea:hover {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+input[type=text]:focus,
+textarea:focus {
+	background-color: rgba(255, 255, 255, 0.788);
+	outline-color: rgba(121, 9, 45, 1);
+}
+
+/***********FILTERS******************/
+#filters {
+	display: grid;
+	padding: 20PX 0;
+	grid-template: 1fr/ 1fr 2fr 2fr;
+	column-gap: 10px;
+}
+h2 {
+	margin: 0;
+	color: white;
+	font-size: 20px;
+	align-self: center;
+}
+#filters .btn {
+	margin: 0;
+	background-color: white;
+	padding: 10px 30px;
+	color: rgba(121, 9, 45, 1);
+	font-weight: bold;
+	font-size: 16px;
+}
+#filters .btn:hover {
+	background-color: rgb(184, 66, 125);
+	color: white;
+}
+#filters .btn:focus {
+	background-color: rgb(184, 66, 125);
+	color: white;
+}
+
+/***************SEARCH*****************/
+#form-search label {
+	font-size: 15px;
+	padding-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+	body {
+		margin: 5% 10%;
+	}
+
+	#filters {
+		grid-template: 1fr/ 1fr;
+		row-gap: 10px;
+	}
+}
