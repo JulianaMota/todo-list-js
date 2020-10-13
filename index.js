@@ -31,11 +31,9 @@ const addTodo = (todo, id) => {
 };
 
 //get todos
-db.collection('todo').onSnapshot((snapshot) => {
-	// console.log(snapshot.docChanges());
+db.collection('todo').orderBy('date').onSnapshot((snapshot) => {
 	snapshot.docChanges().forEach((change) => {
 		const doc = change.doc;
-		// console.log(change.type);
 		if (change.type === 'added') {
 			addTodo(doc.data(), doc.id);
 		} else if (change.type === 'removed') {
@@ -134,7 +132,6 @@ filters.addEventListener('click', (e) => {
 	const todos = document.querySelectorAll('li');
 
 	todos.forEach((todo) => {
-		console.log(e.target.dataset.btn === 'imp');
 		if(e.target.dataset.btn === 'imp') {
 			if (!todo.children[0].children[0].children[0].checked) {
 				todo.style.display = 'none';
